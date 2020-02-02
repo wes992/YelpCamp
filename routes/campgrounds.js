@@ -3,16 +3,17 @@ var router  = express.Router();
 var Campground  = require('../models/campground');
 var middleware = require('../middleware');
 
-// INDEX - show all campgrounds
+
+//INDEX - show all campgrounds
 router.get("/", function(req, res){
-	// Get all campgrounds from DB
-	Campground.find({}, function(err, allCampgrounds){
-		if(err){
-			console.log(err)
-		} else{
-			res.render("campgrounds/index", {campgrounds: allCampgrounds});
-		}
-	});
+    // Get all campgrounds from DB
+    Campground.find({}, function(err, allCampgrounds){
+       if(err){
+           console.log(err);
+       } else {
+          res.render("campgrounds/index",{campgrounds: allCampgrounds, page: 'campgrounds'});
+       }
+    });
 });
 
 
@@ -22,19 +23,20 @@ router.post("/", middleware.isLoggedIn, function(req,res){
 	// get data from form and add to camapgrounds array
 	var name  = req.body.name,
 		image = req.body.image,
+		cost = req.body.cost,
 		desc  = req.body.description;
 	var author = { 
 			id: req.user._id,
 			username: req.user.username
 		},
-		newCampground = {name:name, image:image, description: desc, author:author};
+		newCampground = {name:name, cost:cost, image:image, description: desc, author:author};
 	
 	//create a new campground and save to DB
 	Campground.create(newCampground, function(err, newlyCreated){
 		if(err){
 			console.log(err);
 		} else {
-			//redirect back to campgrounds page
+			//redirect back to campgrounds page/
 			res.redirect('/campgrounds');
 		}
 	})
@@ -77,6 +79,7 @@ router.get('/:id/edit', middleware.chkOwnership, function(req,res){
 
 router.put('/:id', middleware.chkOwnership, function(req,res){
 	//find and update campground
+	var newData = {name: req.body.name, image: req.body.image, cost: req.body.cost, description: req.body.description};
 	Campground.findByIdAndUpdate(req.params.id, req.body.campground, function(err,updatedCampground){
 		if(err){
 			res.redirect('/campgrounds')
