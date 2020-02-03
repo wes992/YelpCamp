@@ -1,29 +1,35 @@
 <% include ./partials/header %>
 
 <div class="row">
-    <h1 style="text-align: center">Sign Up</h1>
     <div style="width: 30%; margin: 25px auto;">
         <form action="/register" method="post">
             <div class="form-group">
-                <input class="form-control" type="text" name="username" placeholder="Username">
+				<label for="username">Username:</label>
+                <input class="form-control" type="text" name="username" placeholder="Username" requred>
             </div>
             <div class="form-group">
-                <input class="form-control" type="password" name="password" placeholder="Password">
+				<label for="password">Password:</label>
+                <input class="form-control" type="password" name="password" placeholder="Password" required>
             </div>
 			<div class="form-group">
-                <input class="form-control" type="text" name="firstName" placeholder="John">
+				<label for="firstName">First Name:</label>
+                <input class="form-control" type="text" name="firstName" placeholder="John" required>
             </div>            
 			<div class="form-group">
-                <input class="form-control" type="text" name="lastName" placeholder="Doe">
+				<label for="lastName">Last Name:</label>
+                <input class="form-control" type="text" name="lastName" placeholder="Doe" required>
             </div>   
             <div class="form-group">
+				<label for="avatar">Avatar Photo:</label>
                 <input class="form-control" type="text" name="avatar" placeholder="Avatar URL">
             </div>
 			<div class="form-group">
+				<label for="email">Email Address:</label>
                 <input class="form-control" type="email" name="email" placeholder="example@email.com">
             </div>
 			<div class="form-group">
-                <input class="form-control" type="password" name="adminCode" placeholder="Admin Code">
+				<label for="adminCode"><small>Admin Code:</small></label>
+                <input class="form-control" type="password" name="adminCode" placeholder="Input admin code here, if you have it">
             </div>
             <div class="form-group">
                 <button class="btn btn-lg btn-primary btn-block">Sign Up!</button>

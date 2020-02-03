@@ -1,7 +1,7 @@
 var express    = require('express'),
 	router     = express.Router(),
 	passport   = require('passport'),
-	User       = require('../models/user');
+	User       = require('../models/user'),
 	Campground = require('../models/campground');
 	
 
@@ -32,7 +32,7 @@ router.post('/register', function(req,res){
 			return res.render("register", {error: err.message});
 		}
 		passport.authenticate('local')(req, res, function(){
-			req.flash('info', 'Welcome to YelpCamp ' + user.username+"!!");
+			req.flash('info', 'Welcome to YelpCamp, ' + user.firstName+"!!");
 			res.redirect('/campgrounds');
 		});
 	});
@@ -46,7 +46,7 @@ router.post('/login', passport.authenticate('local', {
 	successRedirect: '/campgrounds', 
 	failureRedirect: '/login', 
 	failureFlash: true,
-	successFlash: 'Welcome back to Yelp Camp, ' + User.firstName +'!!'
+	successFlash: 'Welcome back to Yelp Camp!'
 }), function(req, res){
 });
 
