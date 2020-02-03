@@ -127,6 +127,7 @@ router.delete('/:id', middleware.chkOwnership, function(req,res){
 		if(err){
 			res.redirect('/campgrounds');
 		} else {
+			req.flash('info','Campgound successfully deleted, you are most welcome...');
 			res.redirect('/campgrounds');
 		}
 	});
