@@ -25,9 +25,9 @@ mongoose.connect('mongodb+srv://Wes992:Pw12345@cluster0-iqt9l.mongodb.net/test?r
 	useNewUrlParser: true,
 	useCreateIndex: true
 }).then(() => {
-	console.log("Successfully connected to DB");
+	console.log("Successfully connected to DB!");
 }).catch(err => {
-	console.log("ERROR:", error.message);
+	console.log("ERROR:", err.message);
 });
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: true}));
