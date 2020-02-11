@@ -1,6 +1,44 @@
 # YelpCamp
 
-Uses MongoDB, and have to install for it to properly work.
+Work in progress..
 
+Node.js web application with RESTful routing.
 
-This is a project that I am working on. Still in progress. Plans to add user authentications, associations, and more in depth use of DB.
+Features:
+
+Login/sign up
+
+User Authentication with passport and User authorization for editing and deleting.
+
+Andmin and User profiles
+
+Add, edit or delete campgrounds and reviews with user authorization
+
+OOP for data relationships
+
+Google Maps API
+
+Dynamic Pricing
+
+Flash messages
+
+MongoDB and mongoose
+
+Time since posted with momentJS
+
+Plans to:
+
+Update user input methods
+
+Add directions API
+
+Styling changes
+
+Add likes/reply feature
+
+Password reset feature
+
+In-app notification
+
+Refactor callbacks with async/await
+
