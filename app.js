@@ -18,7 +18,7 @@ var campgroundRoutes  = require('./routes/campgrounds'),
     commentRoutes     = require('./routes/comments'),
     authRoutes        = require('./routes/index');
 
-
+console.log(process.env.DATABASEURL);
 mongoose.set("useUnifiedTopology", true);
 // mongoose.connect("mongodb://localhost/yelp_camp", {useNewUrlParser: true});
 
@@ -27,7 +27,7 @@ mongoose.set("useUnifiedTopology", true);
 // 	useCreateIndex: true
 // })
 
-mongoose.connect(DATABASEURL, {
+mongoose.connect(process.env.DATABASEURL, {
 	useNewUrlParser: true,
 	useCreateIndex: true
 }).then(() => {
