@@ -165,12 +165,12 @@ router.post('/reset/:token', (req, res)=> {
 				subject: 'YelpCamp password has been successfully reset!',
 				text: 'Hey ' + user.firstName + ","  + "\n\n" +
 				'This is a confirmation email, informing you that the password for your account ' + '\n\n' + user.email + '\n\n' +
-				' has been successfully updated to the new password that you provided'
+				' has been successfully updated to the new password that you provided.'
 				
 			};
 			smtpTransport.sendMail(mailOptions, (err) => {
 				console.log('mail sent');
-				req.flash('info', 'Congrats, your password has been changes successfully!');
+				req.flash('info', 'Congrats, your password has been changed successfully!');
 				done(err);
 			});
 		}
