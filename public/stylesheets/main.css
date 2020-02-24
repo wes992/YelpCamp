@@ -10,6 +10,9 @@
 	padding: 9px;
 }
 
+.thumbnail .imgGrid {
+	height: 200px;
+}
 .delete-form {
 	display: inline;
 }
